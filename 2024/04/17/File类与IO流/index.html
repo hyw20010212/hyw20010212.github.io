@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+
+  
+    <meta name="description" content="Java Study">
+  
+
+  
+
+  
+    <meta name="author" content="ThousandWATBottle">
+  
+
+  
+
+  
+
+  <title>水瓶还有千万的博客</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          水瓶还有千万的博客
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/messages">留言</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+          <li class="navbar-list-item"><a href="/categories">分类</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap"></h1>
+          <h2 class="title-sub-wrap">
+            <strong>ThousandWATBottle</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2024-04-16T16:35:43.206Z" itemprop="datePublished">2024-04-17</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="File类与IO流"><a href="#File类与IO流" class="headerlink" title="File类与IO流"></a>File类与IO流</h1><p><strong>File类的理解</strong></p>
+<p>File类位于java.io包下，File类的一个对象，对应与操作系统下的一个文件或一个文件目录（或文件夹）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">File</span><span class="params">(String pathname)</span>;<span class="comment">//以pathname为路径创建File对象，可以是相对路径也可以是绝对路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">File</span><span class="params">(String parent, String child)</span>;<span class="comment">//以parent为父路径，child为子路径创建File对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">File</span><span class="params">(File parent, String child)</span>;<span class="comment">//根据一个父File对象和子文件路径创造File对象</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>获取文件和目录的基本信息</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span><span class="comment">//获取名称</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getPath</span><span class="params">()</span><span class="comment">//获取路径</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getAbsolutePath</span><span class="params">()</span><span class="comment">//获取绝对路径</span></span><br><span class="line"><span class="keyword">public</span> File <span class="title function_">getAbsoluteFile</span><span class="params">()</span><span class="comment">//获取绝对路径表示的文件</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getParent</span><span class="params">()</span><span class="comment">//获取上层文件目录路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">length</span><span class="params">()</span><span class="comment">//获取文件的字节数，目录不行</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">lastModified</span><span class="params">()</span><span class="comment">//获取最后一次修改时间</span></span><br><span class="line"><span class="keyword">public</span> String[] list()<span class="comment">//返回一个String数组，表示该Fiel目录中的所有子文件或目录</span></span><br><span class="line"><span class="keyword">public</span> File[] listFiles()<span class="comment">//返回一个File数组，表示该File目录中所有的子文件或者目录</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">renameTo</span><span class="params">(File dest)</span><span class="comment">//把文件重命名为指定的文件路径</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>Windows平台使用\ 在Java字符串中需要用\表示一个,Linux平台使用&#x2F;作为路径分隔符</p>
+<p><strong>判断功能的方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">exists</span><span class="params">()</span> <span class="comment">//此File表示的文件或目录是否实际存在</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isDirectory</span><span class="params">()</span><span class="comment">//此File表示的是否为目录</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isFile</span><span class="params">()</span><span class="comment">//此File表示的是否为文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canRead</span><span class="params">()</span><span class="comment">//判断是否可读</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canWrite</span><span class="params">()</span><span class="comment">//判断是否可写入</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isHidden</span><span class="params">()</span><span class="comment">//判断是否隐藏</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>创建与删除功能</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">createNewFile</span><span class="params">()</span><span class="comment">//创建文件</span></span><br><span class="line"><span class="keyword">public</span> File <span class="title function_">createTempFile</span><span class="params">()</span><span class="comment">//创建临时文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteOnExit</span><span class="params">()</span><span class="comment">//在JVM退出的时候自动删除</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">mkdir</span><span class="params">()</span><span class="comment">//创建文件目录，如果存在或上层目录不存在，就不创建了</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">mkdirs</span><span class="params">()</span><span class="comment">//创建文件目录，如果上层文件目录不存在，一并创建</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">()</span><span class="comment">//删除文件或者文件夹</span></span><br><span class="line">删除的注意事项：</span><br><span class="line">	<span class="number">1.</span>Java中的删除不走回收站</span><br><span class="line">	<span class="number">2.</span>删除一个文件目录，注意该文件目录内不能包含文件或者文件目录（干净的目录）</span><br></pre></td></tr></table></figure>
+
+<p><strong>过滤函数</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String[] listFiles = file.list(<span class="keyword">new</span> <span class="title class_">FilenameFilter</span>()&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">accept</span><span class="params">(File file, String name)</span>&#123;</span><br><span class="line">		<span class="comment">//判断语句</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>File类中声明了以上各种功能，但是没有涉及到文件内容的读写操作，想要实现文件内容的读写，就需要使用IO流。File的对象，通常是作为IO流操作的文件的端点出现的。</p>
+<h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><p><img src="/.io//Untitled.png" alt="Untitled"></p>
+<p><strong>IO流</strong>分为输入流<strong>InputStream</strong>和输出流<strong>OutputStream</strong></p>
+<p><strong>InputStream</strong></p>
+<p>InputStream是Java标准库中提供的最基本的输入流，位于java.io这个包里面。InputStream不是一个接口，而是一个抽象类，是所有输入流的超类。</p>
+<p>InputStream提供了read()的方法，用来读取文件的字节，并用返回字节表示的int值，如果读取完毕，就返回-1。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="comment">// 创建一个FileInputStream对象:</span></span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;src/readme.txt&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> input.read(); <span class="comment">// 反复调用read()方法，直到返回-1</span></span><br><span class="line">        <span class="keyword">if</span> (n == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(n); <span class="comment">// 打印byte的值</span></span><br><span class="line">    &#125;</span><br><span class="line">    input.close(); <span class="comment">// 关闭流</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>InputStream和OutputStream都是通过close()方法来关闭流，释放对应的底层资源。</p>
+<p>使用try-catch来保证释放流。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        input = <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;src/readme.txt&quot;</span>);</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        <span class="keyword">while</span> ((n = input.read()) != -<span class="number">1</span>) &#123; <span class="comment">// 利用while同时读取并判断</span></span><br><span class="line">            System.out.println(n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (input != <span class="literal">null</span>) &#123; input.close(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用<code>try ... finally</code>来编写上述代码会感觉比较复杂，更好的写法是利用Java 7引入的新的<code>try(resource)</code>的语法，只需要编写<code>try</code>语句，让编译器自动为我们关闭资源。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="keyword">try</span> (<span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;src/readme.txt&quot;</span>)) &#123;</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        <span class="keyword">while</span> ((n = input.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="comment">// 编译器在此自动为我们写入finally并调用close()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在读取字符的时候单个读取效率很低，可以使用缓冲区一次性读取多个字节，提高效率。InputStream提供了连个重载的方法来支持读取多个字节。</p>
+<ul>
+<li>int read(byte[] b)</li>
+<li>int read(byte[] b, int off, intr len) 指定byte[]数组的起点和最大填充数。</li>
+</ul>
+<p>定义byte[]数组作为read()方法的入参，byte数组的长度限定了read方法读取字节的最大长度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ((bytesRead = input.read(buffer, <span class="number">0</span>, buffer.length)) != -<span class="number">1</span>) &#123;  </span><br><span class="line">                <span class="comment">// 处理读取到的数据  </span></span><br><span class="line">                <span class="comment">// 例如，可以将其写入文件或输出到控制台  </span></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在测试的时候，不需要在本地真得建立一个txt，使用InputStream的子类的ByteArryInputStream来构造一个Stream来进行测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">byte</span>[] data = &#123; <span class="number">72</span>, <span class="number">101</span>, <span class="number">108</span>, <span class="number">108</span>, <span class="number">111</span>, <span class="number">33</span> &#125;;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayInputStream</span>(data)) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> readAsString(input);</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">readAsString</span><span class="params">(InputStream input)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">while</span> ((n = input.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            sb.append((<span class="type">char</span>) n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>OutputStream</strong></p>
+<p>OutputStream是Java提供的最基本的输出流，与InputStream类似，它是所有输出流的超类，重要的方法是write(int i)，虽然传参是int类型，但是只会写入一个字节，即只写入int表示的最低8为的字节的部分。</p>
+<p>OutputStream还提供了flush()方法，将缓冲区的内容真正的输出到目的地。</p>
+<p>每次写入一个字节的方法非常麻烦，OutputStream提供了重载方法write(byte [])来实现多数据输出。避免磁盘已满，无权限写入等问题，类似的，我们使用try(resource)来保证OutputStream是否发生IO错误的时候都能够正确地关闭。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">	<span class="keyword">try</span>(<span class="type">OutputStream</span> <span class="variable">out</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;name:&quot;</span>))&#123;</span><br><span class="line">		out.write(<span class="string">&quot;Hello&quot;</span>.getBytes(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时操作多个<code>AutoCloseable</code>资源时，在<code>try(resource) &#123; ... &#125;</code>语句中可以同时写出多个资源，用<code>;</code>隔开。例如，同时读写两个文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取input.txt，写入output.txt:</span></span><br><span class="line"><span class="keyword">try</span> (<span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;input.txt&quot;</span>);</span><br><span class="line">     <span class="type">OutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;output.txt&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    input.transferTo(output); <span class="comment">// transferTo的作用是?</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>transferTo等同于以下的循环操作，但是更为高效：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>]; <span class="comment">// 假设使用1024字节的缓冲区  </span></span><br><span class="line"><span class="type">int</span> bytesRead;  </span><br><span class="line"><span class="keyword">while</span> ((bytesRead = input.read(buffer)) != -<span class="number">1</span>) &#123;  </span><br><span class="line">    output.write(buffer, <span class="number">0</span>, bytesRead);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>需要注意的是</strong>，<code>transferTo</code> 方法可能无法传输所有的字节，即使源输入流中还有数据。这是因为 <code>transferTo</code> 方法可能在传输一定数量的字节后返回，或者在遇到 I&#x2F;O 错误时抛出异常。因此，如果你需要确保所有数据都被传输，你可能需要检查 <code>transferTo</code> 的返回值(-1)，并在必要时重复调用它，直到所有的数据都被传输。</p>
+<p>同样的，我们也可以用用<code>FileOutputStream</code>可以从文件获取输出流，这是<code>OutputStream</code>常用的一个实现类。此外，<code>ByteArrayOutputStream</code>可以在内存中模拟一个<code>OutputStream</code>。</p>
+<p>我们在开发过程中可能需要对流进行多种自定义操作，这样可以使用到<strong>Filter</strong>功能。</p>
+<p>为了解决依赖继承导致子类数量失控的问题，JDK将InputStream分为提供数据基础和提供额外附加功能两大类</p>
+<p><img src="/.io//Untitled%201.png" alt="Untitled"></p>
+<p>这样，在我们使用不同功能的InputStream的时候，只需要在实例的时候包装就可以实现。无论我们包装多少次，得到的对象始终都是InputStream，直接引用就可以使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DataInputStream</span>();</span><br></pre></td></tr></table></figure>
+
+<p>类似的，OutputStream也同样支持相同的操作。</p>
+<p><img src="/.io//Untitled%202.png" alt="Untitled"></p>
+<p>可以自定义Filter来实现需要的功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">readMyTest</span><span class="params">(InputStream input)</span>  <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="keyword">try</span>(<span class="type">CountInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CountInputStream</span>(input))&#123;</span><br><span class="line">            <span class="type">int</span> n;</span><br><span class="line">            <span class="keyword">while</span> ((n = inputStream.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println((<span class="type">char</span>)n);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;Total read &quot;</span> + inputStream.getBytesRead() + <span class="string">&quot; bytes&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CountInputStream</span> <span class="keyword">extends</span> <span class="title class_">FilterInputStream</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    CountInputStream(InputStream in) &#123;</span><br><span class="line">        <span class="built_in">super</span>(in);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getBytesRead</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//计算stream中a的数量</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> in.read();</span><br><span class="line">        <span class="keyword">if</span> (n != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n == <span class="number">97</span>)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">read</span><span class="params">(<span class="type">byte</span>[] b, <span class="type">int</span> off, <span class="type">int</span> len)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> in.read(b, off, len);</span><br><span class="line">        <span class="keyword">if</span> (n != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.count += n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在不同服务端中的项目位置是不同的，导致无法固定配置文件的路径，使用classPath来读取文件，避免不同环境下文件路径不一致的问题。例如把default.properties文件放在classpath中，就无需关心实际存放的路径。</p>
+<p><strong>通过序列化与反序列化可以进行数据的传输</strong></p>
+<p>序列化的本质是把对象变成二进制数组，也就是byte[]。</p>
+<p>把一个Java对象变为<code>byte[]</code>数组，需要使用<code>ObjectOutputStream</code>。它负责把一个Java对象写入一个字节流：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ByteArrayOutputStream</span> <span class="variable">buffer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(buffer)) &#123;</span><br><span class="line">            <span class="comment">// 写入int:</span></span><br><span class="line">            output.writeInt(<span class="number">12345</span>);</span><br><span class="line">            <span class="comment">// 写入String:</span></span><br><span class="line">            output.writeUTF(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">            <span class="comment">// 写入Object:</span></span><br><span class="line">            output.writeObject(Double.valueOf(<span class="number">123.456</span>));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>ObjectOutputStream功能强大，既可以写入int，boolean等基本类型，也可以写入String(UTF-8)，还可以写入实现了Serializable接口的Object。</p>
+<p>与ObjectOutputStream相反，ObjectOutputStream负责从一个字节流读取Java对象，也就是反序列化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">ObjectInputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(...)) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> input.readInt();</span><br><span class="line">    <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> input.readUTF();</span><br><span class="line">    <span class="type">Double</span> <span class="variable">d</span> <span class="operator">=</span> (Double) input.readObject();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了能读取上诉类型之外，可以调用readObject()可以直接返回一个Object对象，再进行强转，该方法会抛出两个异常。</p>
+<ul>
+<li>ClassNotFoundException<ul>
+<li>该情况常见与在不同终端上没有建立相同的对象，导致在接收终端无法找到对应的类。</li>
+</ul>
+</li>
+<li>InvaildClassException<ul>
+<li>这种情况常见于想序列化和反序列化中的字段类型冲突，导致class不兼容。</li>
+</ul>
+</li>
+</ul>
+<p>为了避免这种情况，Java序列化允许class定义一个特殊的serialVersionUID静态变量，用于标识Java类的序列化版本，由IDE自动生成。这样如果修改了字段，就会改变该值。</p>
+<p><strong>实际上，Java本身提供的基于对象的序列化和反序列化机制既存在安全性问题，也存在兼容性问题。更好的序列化方法是通过JSON这样的通用数据结构来实现，只输出基本类型（包括String）的内容，而不存储任何与代码相关的信息</strong>。</p>
+<h3 id="Reader-And-Writer"><a href="#Reader-And-Writer" class="headerlink" title="Reader And Writer"></a>Reader And Writer</h3><p><code>Reader</code>是Java的IO库提供的另一个输入流接口。和<code>InputStream</code>的区别是，<code>InputStream</code>是一个字节流，即以<code>byte</code>为单位读取，而<code>Reader</code>是一个字符流，即以<code>char</code>为单位读取。</p>
+<p>也就是说，在提供read()的方法中，返回的是0~65535的int类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">readFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">try</span>(<span class="type">Reader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;out/readme.txt&quot;</span>, StandardCharsets.UTF_8))&#123;</span><br><span class="line">            <span class="type">int</span> n;</span><br><span class="line">            <span class="keyword">while</span>( (n = reader.read() )!= -<span class="number">1</span>)&#123;</span><br><span class="line">                System.out.println((<span class="type">char</span>)n);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：FileReader带指定编码格式在Java8及以前的版本并不提供。</p>
+<p>相对应Input流，<strong>Reader</strong>中也有对应的子类提供。</p>
+<ul>
+<li><p><code>CharArrayReader</code>可以在内存中模拟一个<code>Reader</code>，它的作用实际上是把一个<code>char[]</code>数组变成一个<code>Reader</code>，这和<code>ByteArrayInputStream</code>非常类似：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">Reader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CharArrayReader</span>(<span class="string">&quot;Hello&quot;</span>.toCharArray())) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>StringReader</code>可以直接把<code>String</code>作为数据源，它和<code>CharArrayReader</code>几乎一样。</p>
+</li>
+</ul>
+<p>可以看出Reader与InputStream有着不小的关联，普通的<code>Reader</code>实际上是基于<code>InputStream</code>构造的，因为<code>Reader</code>需要从<code>InputStream</code>中读入字节流（<code>byte</code>），然后，根据编码设置，再转换为<code>char</code>就可以实现字符流。如果我们查看<code>FileReader</code>的源码，它在内部实际上持有一个<code>FileInputStream</code>。</p>
+<p>这样，如果我们持有一个保存byte[]的InputStream，我们是否可以直接转为Reader类型。InputStreamReader就是Java提供的一个转换器，可以把任何InputStream转换为Reader</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">Reader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;src/readme.txt&quot;</span>), <span class="string">&quot;UTF-8&quot;</span>)) &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这也可以看作是一种FileReader的实现，在FileReader的源码中，可以看到其实是实现了FileInputStream。</p>
+<p><strong>Writer与Reader类似，这里就不再进行赘述</strong>。</p>
+<h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><p>从Java7开始，Java提供了这个工具类，极大的加快了工作速度。</p>
+<p>Files提供的读写方法十分的方便：</p>
+<ul>
+<li><p>**<code>byte**[] data = Files.readAllBytes(Path.of(&quot;/path/to/file.txt&quot;));</code></p>
+<p>  将文件的内容全部读取为byte[]</p>
+</li>
+<li><p><code>String content1 = Files.readString(Path.of(&quot;/path/to/file.txt&quot;));</code></p>
+<p>  将文件内容全部读取为String，可以指定读取编码类型。</p>
+</li>
+<li><p>**<code>List**&lt;String&gt; lines = Files.readAllLines(Path.of(&quot;/path/to/file.txt&quot;));</code></p>
+<p>  按行读取并返回每一行的内容</p>
+</li>
+<li><p><code>Files.write(Path.of(&quot;/path/to/file.txt&quot;), data);</code></p>
+<p>  写入二进制文件</p>
+</li>
+<li><p><code>Files.writeString(Path.of(&quot;/path/to/file.txt&quot;), &quot;文本内容...&quot;, StandardCharsets.ISO_8859_1);</code></p>
+<p>  根据编码类型写入文件</p>
+</li>
+<li><p><code>Files.write(Path.of(&quot;/path/to/file.txt&quot;), lines);</code></p>
+<p>  按行写入文件</p>
+</li>
+</ul>
+<p>此外，<code>Files</code>工具类还有<code>copy()</code>、<code>delete()</code>、<code>exists()</code>、<code>move()</code>等快捷方法操作文件和目录。</p>
+<p><strong>注意</strong>：<code>Files</code>提供的读写方法，受内存限制，只能读写小文件，例如配置文件等，不可一次读入几个G的大文件。读写大型文件仍然要使用文件流，每次只读写一部分文件内容。</p>
+<h3 id="BIO、NIO与AIO"><a href="#BIO、NIO与AIO" class="headerlink" title="BIO、NIO与AIO"></a><strong>BIO、NIO与AIO</strong></h3><p><img src="/.io//Untitled%203.png" alt="Untitled"></p>
+<p><strong>Blocking I&#x2F;O</strong>：传统IO，同步阻塞，服务器实现模式为一个连接一个线程</p>
+<p><img src="/.io//Untitled%204.png" alt="Untitled"></p>
+<p>BIO方式适用于链接数目比较小而且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中。</p>
+<p><strong>Java non-blocking IO</strong>，是指JDK提供的新的API。从1.4开始，提供了一系列改进的输入&#x2F;输出的新特性，被统称为NIO</p>
+<p>NIO是<strong>同步非阻塞</strong>的，服务器端用一个线程处理多个连接，客户端发送的连接请求会注册到多路复用器上，多路复用器轮询到链接有IO请求就进行处理。</p>
+<p>NIO的数据在传输的时候是面向<strong>缓冲区Buffer</strong>的，必须从Buffer中读取或写入</p>
+<p><img src="/.io//Untitled%205.png" alt="Untitled"></p>
+<ul>
+<li>每个Channel对应一个Buffer</li>
+<li>Selector对应一个线程，一个线程对应多个Channel。</li>
+<li>Selector会根据不同的事件，在各个通道上切换</li>
+<li>Buffer是内存块，底层是数据</li>
+</ul>
+<p><strong>Asynchronous I&#x2F;O</strong>，AIO是异步不阻塞的I&#x2F;O。NIO就是reactor，当有事件触发时，服务器端得到通知，进行相应的处理，完成后才通知服务端程序启动线程去处理，一般适用于连接数较多且连接时间较长的应用。</p>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><p>序列化就是把Java对象转换为二进制流，方便存储和传输。反序列化就是把二进制流恢复成对象。</p>
+<p><strong>Serializable接口</strong></p>
+<p>这个接口只是一个标记，没有具体的作用，但是如果不实现这个接口，在有些序列化的场景就会报错，所以建议创建JavaBean类都实现Serializable。</p>
+<p><strong>serialVersionUID作用：</strong></p>
+<p>起一个验证的作用，用来验证序列化对象和反序列化对象的ID是否一致。</p>
+<p>对于不想序列化的变量，可以使用transient关键字修饰。</p>
+<p><strong>transient</strong>：阻止实例中哪些用词关键字修饰的变量进行序列化。只能<strong>修饰变量</strong>。</p>
+<p><strong>序列化的方式</strong></p>
+<p><img src="/.io//Untitled%206.png" alt="Untitled"></p>
+<ul>
+<li>Java对象序列化：Java原生序列化方法即通过Java原生流I&#x2F;O Stream方法进行转化(上文)。</li>
+<li>Json序列化：最常用的序列化方式，将对象转化为byte数组或者json串。</li>
+<li>ProtoBuff 序列化：ProtocolBuffer 是一种轻便高效的结构化数据存储格式，ProtoBuff 序列化对象可以很大程度上将其压缩，可以大大减少数据传输大小，提高系统性能。</li>
+</ul>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/04/17/API%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3Swagger%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">(no title)</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="/images/1.jpg" class="soft-size--round soft-style--box" alt="水瓶还有千万">
+    
+    
+      <h2>水瓶还有千万</h2>
+    
+    
+      <p>自强不息 知行合一</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>3</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>b站主页：https://space.bilibili.com/86150307?spm_id_from=333.1007.0.0</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/miiiku/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2024 <a href="/" target="_blank">ThousandWATBottle</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
