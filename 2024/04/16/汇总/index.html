@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>汇总 | 水瓶还有千万的博客</title><meta name="author" content="水瓶还有千万"><meta name="copyright" content="水瓶还有千万"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="面向对象单例设计与main()的理解 JVM与注释\API文档  Static与final 接口interface 内部类 小知识 线程 常用类与基础API File类与IO流 反射 异步编程 泛型 Lambda表达式 代码块 API接口文档Swagger使用指南 异常处理 Mybatis Plus 抽象类与抽象方法 abstract 注解Annotation 单元测试 JMM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇总">
+<meta property="og:url" content="http://hyw20010212.github.io/2024/04/16/%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="水瓶还有千万的博客">
+<meta property="og:description" content="面向对象单例设计与main()的理解 JVM与注释\API文档  Static与final 接口interface 内部类 小知识 线程 常用类与基础API File类与IO流 反射 异步编程 泛型 Lambda表达式 代码块 API接口文档Swagger使用指南 异常处理 Mybatis Plus 抽象类与抽象方法 abstract 注解Annotation 单元测试 JMM">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://hyw20010212.github.io/images/cover2.jpg">
+<meta property="article:published_time" content="2024-04-16T15:41:46.809Z">
+<meta property="article:modified_time" content="2024-04-20T18:36:25.064Z">
+<meta property="article:author" content="水瓶还有千万">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hyw20010212.github.io/images/cover2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://hyw20010212.github.io/2024/04/16/%E6%B1%87%E6%80%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.14.0-b2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.35/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '汇总',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-21 02:36:25'
+}</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="水瓶还有千万的博客"><span class="site-name">水瓶还有千万的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-04-16T15:41:46.809Z" title="Created 2024-04-16 23:41:46">2024-04-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-04-20T18:36:25.064Z" title="Updated 2024-04-21 02:36:25">2024-04-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="汇总"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p><a href="https://hyw20010212.github.io/2024/04/17/File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/">单例设计与main()的理解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/JVM-API-d5060a3ae44143b2bcedbd4e92828014?pvs=21">JVM与注释\API文档 </a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/Static-final-eb56c1e3045c4e628e7c8fad6b66a884?pvs=21">Static与final</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/interface-bb982ec267f04ca0a775c2888ba193ab?pvs=21">接口interface</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/190eb41eb44c4aafb527d7fd518d7cda?pvs=21">内部类</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/285ecb55361642f2b7461eedf4b20b38?pvs=21">小知识</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/bf18de630f1940a9a2d9326552b07a91?pvs=21">线程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/API-7d6ae30439d44567922fdb20f9b3c201?pvs=21">常用类与基础API</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/File-IO-ffd098987fc940b08165bbe1afeae826?pvs=21">File类与IO流</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/14beb6f4e4274158940f02bc7e43704a?pvs=21">反射</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/4b5ab83e3d894ed5867501f032b2e56d?pvs=21">异步编程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/d57eabc5f3134c4a9d4648af6b0b93b0?pvs=21">泛型</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/Lambda-b9b7b56096e34313921ea8b78b0269b8?pvs=21">Lambda表达式</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/39cab743232b4e818b34b092de978b41?pvs=21">代码块</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/API-Swagger-55adf4934a924b4b86ffffea24c675eb?pvs=21">API接口文档Swagger使用指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/edff3e9eeff442fe87a30c74a245e229?pvs=21">异常处理</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/Mybatis-Plus-166eb8ddf4b64a7c8563c006b5a9a9bf?pvs=21">Mybatis Plus</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/abstract-7ec07dfc0e1345f0b28eab2e00632f8f?pvs=21">抽象类与抽象方法 abstract</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/Annotation-5ae77cca62f74e0d97f4508a76bf1127?pvs=21">注解Annotation</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/8e2dbf089c7b47e7bae37d30c94dbd20?pvs=21">单元测试</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/JMM-3bf254ca6b2d45d0bdcab80f6f5e0e55?pvs=21">JMM</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://hyw20010212.github.io">水瓶还有千万</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://hyw20010212.github.io/2024/04/16/%E6%B1%87%E6%80%BB/">http://hyw20010212.github.io/2024/04/16/%E6%B1%87%E6%80%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/images/cover2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/04/17/API%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3Swagger%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="API接口文档Swagger使用指南"><img class="cover" src="/images/cover3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">API接口文档Swagger使用指南</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">水瓶还有千万</div><div class="author-info__description">Java Study</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hyw20010212"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hyw20010212" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:h1285903015@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://hyw20010212.github.io/2024/04/16/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1" target="_blank" title="总汇"><i class="fa-solid fa-bars" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-text">面向对象</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" title="File类与IO流"><img src="/images/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="File类与IO流"/></a><div class="content"><a class="title" href="/2024/04/17/File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" title="File类与IO流">File类与IO流</a><time datetime="2024-04-16T16:35:43.206Z" title="Created 2024-04-17 00:35:43">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/API%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3Swagger%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="API接口文档Swagger使用指南"><img src="/images/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="API接口文档Swagger使用指南"/></a><div class="content"><a class="title" href="/2024/04/17/API%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3Swagger%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="API接口文档Swagger使用指南">API接口文档Swagger使用指南</a><time datetime="2024-04-16T16:35:41.254Z" title="Created 2024-04-17 00:35:41">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/%E6%B1%87%E6%80%BB/" title="汇总"><img src="/images/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇总"/></a><div class="content"><a class="title" href="/2024/04/16/%E6%B1%87%E6%80%BB/" title="汇总">汇总</a><time datetime="2024-04-16T15:41:46.809Z" title="Created 2024-04-16 23:41:46">2024-04-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 水瓶还有千万</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.14.0-b2"></script><script src="/js/main.js?v=4.14.0-b2"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.35/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = (ele) => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from(ele).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+    
+    codeMermaidEle.forEach(ele => {
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.innerHTML = `<pre class="mermaid-src" hidden>${ele.textContent}</pre>`
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+  
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
